@@ -105,16 +105,17 @@ Django/DRF/React well enough to know what a given diff is doing.
 
 ### a. Name one thing the AI agent got wrong. How did you notice?
 
-While drafting the plan, the agent wrote that tenant-scoping for a disagreeing record
-should use "System A's location, since A is the source of truth" - directly
-contradicting the brief's explicit line, "Neither is authoritative." I noticed it by
-re-reading the plan against the brief side by side, not by running anything. The fix
-wasn't to drop the rule (something still has to decide which tenant's screen a row
-appears on, or it leaks to both or neither) but to change *why*: System A owns the
-`record_id` namespace that System B's `record_ref` is defined as pointing back at, which
-is an identity/access-control argument, not a claim that A's numbers are more
-trustworthy. `VALUE_MISMATCH` rows still show both sides with no winner declared. See
-`DECISIONS.md` #3.
+While drafting the plan, the AI agent made a mistake by saying that System A was the
+source of truth for tenant-scoping a disagreeing record. However, the brief clearly
+stated that neither System A nor System B was authoritative.
+
+I noticed this by manually reviewing the whole plan again and comparing it with the
+brief. I then explained the issue to Claude and asked for more clarity.
+
+After discussing it, we corrected the reasoning. System A is used only to identify the
+record and handle access control, not because System A's data is considered more
+trustworthy. Both System A and System B values are still shown when there is a
+mismatch. See `DECISIONS.md` #3.
 
 ### b. Which part of your submission are you least confident about, and why?
 
