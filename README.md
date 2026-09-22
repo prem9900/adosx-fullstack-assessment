@@ -1,0 +1,1 @@
+# adosx-fullstack-assessment
