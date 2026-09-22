@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+backend/db.sqlite3
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Editors / OS
+.DS_Store
+
+# Raw assignment materials (not part of the submission)
+temp/
